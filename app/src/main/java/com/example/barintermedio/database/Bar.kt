@@ -10,6 +10,6 @@ data class Bar (
     @NotNull
     var id: Int = 0,
     val name: String,
-    val price: Int,
-    val unit: Int,
+    val price: Double = 0.0,
+    val unit: Int = 0,
     val total: Int)
