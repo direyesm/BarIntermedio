@@ -6,23 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barintermedio.database.Bar
 import kotlinx.android.synthetic.main.bar_item_list.view.*
-import kotlinx.android.synthetic.main.fragment_first.view.*
 
 class BarAdapter(var mPassTheData: PassTheData) : RecyclerView.Adapter<BarAdapter.BarViewHolder>(){
 
     private var dataList = emptyList<Bar>()
 
-    fun upDataList(mDataList: List<Bar>){
+    fun updateDataList(mDataList: List<Bar>){
         dataList = mDataList
         notifyDataSetChanged()
     }
 
     inner class BarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
-        val barText = itemView.barTex
-        val cant = itemView.cant
-        val valor = itemView.valor
+        val nomTex = itemView.textName
+        val canTex = itemView.cantxt
+        val valText = itemView.valortxt
         val itemView = itemView.setOnClickListener(this)
-
 
         override fun onClick(p0: View?) {
            mPassTheData.passTheData(dataList[adapterPosition])
@@ -37,14 +35,14 @@ class BarAdapter(var mPassTheData: PassTheData) : RecyclerView.Adapter<BarAdapte
 
     override fun onBindViewHolder(holder: BarViewHolder, position: Int) {
         val mBar: Bar = dataList[position]
-        holder.barText.text = mBar.name
-        holder.cant.inputType = mBar.unit
-        holder.valor.inputType = mBar.price.toInt()
+        holder.nomTex.text = mBar.name
+        holder.canTex.text = mBar.cantidad.toString()
+        holder.valText.text = mBar.precio.toString()
     }
 
     override fun getItemCount() = dataList.size
 
     interface PassTheData{
-        fun passTheData(mBar: Bar)
+        fun passTheData(mbar: Bar)
     }
 }

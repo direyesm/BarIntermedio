@@ -16,7 +16,7 @@ interface BarDao {
     fun deleteOneBar(mBar: Bar)
 
     @Query("SELECT * FROM table_bar")
-    fun geyAllBarFromDb(): LiveData<List<Bar>>
+    fun getAllBarFromDb(): LiveData<List<Bar>>
 
     @Query("SELECT * FROM TABLE_BAR WHERE id =:mId")
     fun getOneBarByID(mId: Int): LiveData<Bar>

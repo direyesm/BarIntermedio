@@ -6,7 +6,7 @@ import com.example.barintermedio.database.BarDao
 
 class BarRepository(private val mBarDao: BarDao) {
 
-    val listAllBar : LiveData<List<Bar>> = mBarDao.geyAllBarFromDb()
+    val listAllBar : LiveData<List<Bar>> = mBarDao.getAllBarFromDb()
 
     suspend fun insertBar(mBar: Bar){
         mBarDao.insertOneBar(mBar)

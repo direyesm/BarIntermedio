@@ -8,7 +8,7 @@
     tools:context=".FirstFragment">
 
     <EditText
-        android:id="@+id/txtNombre"
+        android:id="@+id/editTexBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/editTexBar" />
 
     <TextView
         android:id="@+id/textView3"
@@ -66,7 +66,7 @@
         android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textResult" />
 
     <TextView
         android:id="@+id/textView4"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/numberPicker" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"

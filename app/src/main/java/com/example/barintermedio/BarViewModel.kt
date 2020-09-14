@@ -20,8 +20,8 @@ class BarViewModel(application: Application) : AndroidViewModel(application) {
         allBar = repository.listAllBar
     }
 
-    fun insertBar(mBar: Bar) = viewModelScope.launch {
-        repository.insertBar(mBar)
+    fun insertBar(bar: Bar) = viewModelScope.launch {
+        repository.insertBar(bar)
     }
 
     fun deleteAllBar() = viewModelScope.launch {
