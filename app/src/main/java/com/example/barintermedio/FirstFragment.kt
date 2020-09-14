@@ -28,6 +28,7 @@ class FirstFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(BarViewModel::class.java)
         arguments?.let {
             idBar = it.getInt("id")
+            Log.d("ID",idBar.toString())
         }
     }
 
@@ -56,15 +57,16 @@ class FirstFragment : Fragment() {
 
         saveBtn.setOnClickListener {
             val producto = editTexBar.text.toString()
-            val precio = txtNum.inputType.toInt()
+          //  val precio = txtNum.inputType.toInt()
+            val cantidad = numberPicker.value.toInt()
 
             if (producto.isNotEmpty()){
                 if (idBar != null){
                     Log.d("OBJ_ID_BAR", idBar.toString())
-                    val mBar = Bar (name = producto, precio = precio, id = idBar!!)
+                    val mBar = Bar (name = producto, cantidad = cantidad, id = idBar!!)
                     mViewModel.updateBar(mBar)
                 }else{
-                    val mBar = Bar (name = producto, precio = precio)
+                    val mBar = Bar (name = producto, cantidad = cantidad)
                     mViewModel.insertBar(mBar)
                 }
             }else{

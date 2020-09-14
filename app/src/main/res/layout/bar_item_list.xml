@@ -11,6 +11,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +22,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="52dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,6 +33,7 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="48dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/valortxt"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toEndOf="@+id/textName"

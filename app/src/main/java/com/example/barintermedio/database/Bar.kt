@@ -1,5 +1,6 @@
 package com.example.barintermedio.database
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull

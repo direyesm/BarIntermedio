@@ -39,6 +39,10 @@ class SecondFragment : Fragment(), BarAdapter.PassTheData{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        //val bar = Bar(1,"Bebida",1500,1)
+//        val bar1 = Bar(0,"Cerveza",800,2)
+//        //viewModel.insertBar(bar)
+//        viewModel.insertBar(bar1)
 
         val mRecyclerView = recyclerView
         val mAdapter = BarAdapter(this)
@@ -47,6 +51,7 @@ class SecondFragment : Fragment(), BarAdapter.PassTheData{
 
         viewModel.allBar.observe(viewLifecycleOwner, Observer {
             mAdapter.updateDataList(it)
+            Log.d("UPDATE", it.size.toString())
         })
 
         fab.setOnClickListener {
