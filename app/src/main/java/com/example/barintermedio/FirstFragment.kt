@@ -50,7 +50,7 @@ class FirstFragment : Fragment() {
             mViewModel.run {
                 getOnBarByID(it).observe(viewLifecycleOwner, Observer {
                     editTexBar.setText(it.name)
-                    txtNum.setText(it.precio)
+                    txtNum.setText(it.precio.toString())
                 })
             }
         }
@@ -59,6 +59,7 @@ class FirstFragment : Fragment() {
             val producto = editTexBar.text.toString()
           //  val precio = txtNum.inputType.toInt()
             val cantidad = numberPicker.value.toInt()
+            val total =  textResult.text.toString()
 
             if (producto.isNotEmpty()){
                 if (idBar != null){
@@ -81,13 +82,15 @@ class FirstFragment : Fragment() {
         numberPicker.minValue = 0
         numberPicker.wrapSelectorWheel = true
         numberPicker.setOnValueChangedListener{
-                number_picker, i, i2 -> Log.d("NUMBER", number_picker.value.toString())
+                number_picker, i, i2 -> number_picker.value.toString()
+            Log.d("NUMBER", number_picker.value.toString())
+
 
         }
     }
 
-//    private fun total(){
-//    result=  numberPicker * txtNum
-//        textResult.setText(result)
-//    }
+   private fun total(){
+    result=  numberPicker * txtNum
+        textResult.setText(result)
+   }
 }
