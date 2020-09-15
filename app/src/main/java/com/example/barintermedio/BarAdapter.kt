@@ -37,7 +37,7 @@ class BarAdapter(var mPassTheData: PassTheData) : RecyclerView.Adapter<BarAdapte
         val mBar: Bar = dataList[position]
         holder.nomTex.text = mBar.name
         holder.canTex.text = mBar.cantidad.toString()
-        holder.valText.text = mBar.precio.toString()
+        holder.valText.text = mBar.total.toString()
     }
 
     override fun getItemCount() = dataList.size
@@ -45,4 +45,6 @@ class BarAdapter(var mPassTheData: PassTheData) : RecyclerView.Adapter<BarAdapte
     interface PassTheData{
         fun passTheData(mbar: Bar)
     }
+
+
 }

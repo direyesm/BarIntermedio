@@ -21,7 +21,6 @@ class FirstFragment : Fragment() {
 
     lateinit var mViewModel: BarViewModel
     private var idBar: Int? = null
-    private var result: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,24 +49,23 @@ class FirstFragment : Fragment() {
             mViewModel.run {
                 getOnBarByID(it).observe(viewLifecycleOwner, Observer {
                     editTexBar.setText(it.name)
-                    txtNum.setText(it.precio.toString())
+                    textResult.setText(it.total.toString())
                 })
             }
         }
 
         saveBtn.setOnClickListener {
             val producto = editTexBar.text.toString()
-          //  val precio = txtNum.inputType.toInt()
+            val total = textResult.text.toString().toInt()
             val cantidad = numberPicker.value.toInt()
-            val total =  textResult.text.toString()
 
             if (producto.isNotEmpty()){
                 if (idBar != null){
                     Log.d("OBJ_ID_BAR", idBar.toString())
-                    val mBar = Bar (name = producto, cantidad = cantidad, id = idBar!!)
+                    val mBar = Bar (name = producto, cantidad = cantidad, total = total, id = idBar!!)
                     mViewModel.updateBar(mBar)
                 }else{
-                    val mBar = Bar (name = producto, cantidad = cantidad)
+                    val mBar = Bar (name = producto, cantidad = cantidad, total = total)
                     mViewModel.insertBar(mBar)
                 }
             }else{
@@ -82,15 +80,16 @@ class FirstFragment : Fragment() {
         numberPicker.minValue = 0
         numberPicker.wrapSelectorWheel = true
         numberPicker.setOnValueChangedListener{
-                number_picker, i, i2 -> number_picker.value.toString()
+                number_picker, i, i2 -> Multiplicacion()
             Log.d("NUMBER", number_picker.value.toString())
-
-
         }
     }
 
-   private fun total(){
-    result=  numberPicker * txtNum
+    fun Multiplicacion(){
+        var n1 : Int = txtNum.text.toString().toInt()
+        var n2 : Int = numberPicker.value.toInt()
+        var result : String = (n1 * n2).toString()
         textResult.setText(result)
-   }
+    }
+
 }

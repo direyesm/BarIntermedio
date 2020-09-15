@@ -12,4 +12,5 @@ data class Bar (
     var id: Int = 0,
     val name: String,
     var precio: Int = 0,
-    var cantidad: Int = 0)
+    var cantidad: Int = 0,
+    var total: Int = 0)
